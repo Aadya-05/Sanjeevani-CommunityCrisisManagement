@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Management Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="emergency_contacts.html">Emergency Contacts</a></li>
+        <li><a href="saferytips.html">Safety Tips</a></li>
+        <li><a href="report.html">Report Crisis</a></li>
+        <li><a href="crisis_response.html">Crisis Response</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Report Crisis</h1>
+    <p> Please use the form below to report any crisis or emergency situation. Your input helps us respond promptly and effectively to address the issue. Make sure to include your personal contact details to ease the responses. Thank you for your cooperation.</p>
+    <hr class="line">
+    <form id="crisis-form">
+        <label for="brief-description">Brief Description of the Event:</label><br>
+        <textarea id="brief-description" name="brief-description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="immediate-action">Immediate Need of Action:</label><br>
+        <textarea id="immediate-action" name="immediate-action" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="contact-details">Contact Details:</label><br>
+        <input type="text" id="contact-details" name="contact-details" required><br><br>
+
+        <!-- Style the submit button -->
+        <input type="submit" value="Submit" class="submit-button">
+    </form>
+</div>
+
+<div class="container">
+    <!-- Content before the centered image -->
+    <div class="crisis-container">
+        <img src="crisis.jpg" alt="crisis" class="crisis">
+    </div>
+    <!-- Content after the centered image -->
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Resilience Hub</p>
+</footer>
+
+<!-- JavaScript for interactivity -->
+<script>
+    document.getElementById('crisis-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Retrieve form data
+        var briefDescription = document.getElementById('brief-description').value;
+        var immediateAction = document.getElementById('immediate-action').value;
+        var location = document.getElementById('location').value;
+        var contactDetails = document.getElementById('contact-details').value;
+
+        // Retrieve crisis reports from localStorage or initialize if not present
+        var reports = localStorage.getItem('crisisReports') ? JSON.parse(localStorage.getItem('crisisReports')) : [];
+
+        // Create a new report object
+        var newReport = {
+            id: reports.length + 1,
+            briefDescription: briefDescription,
+            immediateAction: immediateAction,
+            location: location,
+            contactDetails: contactDetails
+        };
+
+        // Add the new report to the array
+        reports.push(newReport);
+
+        // Save the updated reports array to localStorage
+        localStorage.setItem('crisisReports', JSON.stringify(reports));
+
+        // Redirect to the crisis response page
+        window.location.href = 'crisis_response.html';
+    });
+</script>
+
+</body>
+</html>
