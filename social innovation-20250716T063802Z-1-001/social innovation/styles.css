@@ -1,0 +1,221 @@
+/* styles.css */
+
+body {
+    background-color: #1401104b; /* Example blue color */
+    font-family: 'Helvetica', sans-serif;
+    color: #fff; /* Set text color to white for better contrast */
+}
+
+h1 {
+    color: #000; /* Set text color of headings to black */
+    font-family: 'Verdana', sans-serif; /* Change font family for headings */
+}
+
+h2 {
+    color: #5e0606; /* Set text color of headings to black */
+    font-family: 'Lucida Console', Monospace; /* Change font family for headings */
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #2c3e50; /* Dark blue */
+    color: #fff;
+    padding: 10px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #12f312; /* Orange */
+}
+
+/* Main Content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: 'sans-serif', sans-serif;
+}
+section {
+    margin-bottom: 20px;
+}
+h2 {
+    color: #000; /* Set text color of h2 headings to black */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+p {
+    color: #555; /* Dark gray */
+    line-height: 1.6;
+}
+ul {
+    color: #555; /* Dark gray */
+    line-height: 1.6;
+}
+a {
+    color: #0b0c0c; /* Blue */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #2ecc71; /* Green */
+}
+button {
+    background-color: #2ecc71; /* Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #27ae60; /* Dark green */
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* FAQ */
+dl {
+    margin-top: 20px; /* Add space above the FAQ list */
+}
+
+dt {
+    margin-bottom: 10px; /* Add space below each question */
+}
+
+dd {
+    margin-bottom: 20px; /* Add space below each answer */
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50; /* Dark blue */
+    color: #fff; /* White text color */
+    text-align: center; /* Center-align content */
+    padding: 20px 0; /* Add padding to top and bottom */
+}
+
+.footer-table {
+    margin: 0 auto; /* Center-align table */
+}
+
+.footer-table td {
+    padding: 10px; /* Add padding to table cells */
+}
+
+.footer-table img {
+    width: 30px; /* Adjust the size of social media icons */
+    height: auto;
+}
+/* styles.css */
+
+/* Direct links for reporting and responding */
+.direct-links-container {
+    display: flex; /* Set display to flex */
+    flex-direction: column; /* Arrange items vertically */
+    gap: 20px; /* Add space between the boxes */
+}
+
+.direct-link-box {
+    width: 100%; /* Set the width to 100% */
+    background-color: #3544c5; /* Light gray background */
+    padding: 20px; /* Add padding */
+    border-radius: 16px; /* Add border radius for rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    text-align: center; /* Align content to center */
+}
+
+.direct-link-box:hover {
+    background-color: #2ecc71; /* Green background on hover */
+}
+
+.direct-link-box a {
+    color: #f7f5f5; /* Dark text color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.direct-link-box a:hover {
+    color: #070606; /* White text color on hover */
+}
+
+.crisis-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+}
+
+.crisis {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+}
+
+/* Add styles for the note */
+.note {
+    text-align: center; /* Center-align the note */
+    margin-bottom: 20px; /* Add some space below the note */
+}
+
+/* Style the submit button */
+.submit-button {
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #2ecc71; /* Green background */
+    color: #fff; /* White text color */
+    padding: 15px 30px; /* Add padding to make the button bigger */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 16px; /* Increase font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.submit-button:hover {
+    background-color: #27ae60; /* Dark green background on hover */
+}
+
+/* Scrolling Taskbar styles */
+.scrolling-taskbar {
+    position: fixed;
+    top: 70;
+    left: 10;
+    width: 200px;
+    background-color: #fff; /* Adjust background color */
+    padding: 20px;
+    border-right: 1px solid #ccc; /* Add a border on the right */
+}
+
+.scrolling-taskbar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Adjust marquee style as needed */
+
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Response - Crisis Management Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="emergency_contacts.html">Emergency Contacts</a></li>
+        <li><a href="saferytips.html">Safety Tips</a></li>
+        <li><a href="report.html">Report Crisis</a></li>
+        <li><a href="crisis_response.html">Crisis Response</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Crisis Response</h1>
+    <h2>List of All Crisis Reports:</h2>
+    <ul id="crisis-reports">
+        <!-- Crisis reports will be added dynamically here -->
+    </ul>
+
+    <!-- Form for user responses/comments -->
+    <form id="response-form">
+        <label for="report-selection">Select a Report to Address:</label><br>
+        <select id="report-selection" name="report-selection">
+            <!-- Options for each report will be added dynamically here -->
+        </select><br><br>
+        <label for="response">Your Response/Comment:</label><br>
+        <textarea id="response" name="response" rows="4" cols="50"></textarea><br>
+        <button type="submit">Submit Response</button>
+    </form>
+
+    <!-- Button to contact the reporter -->
+    <button id="contact-reporter-button" onclick="contactReporter()">Contact Reporter</button>
+
+    <h2>Responses to Crisis Reports:</h2>
+    <ul id="crisis-responses">
+        <!-- Responses will be added dynamically here -->
+    </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <a href="https://www.facebook.com/YourPage" target="_blank">
+                        <img src="facebook-icon.png" alt="Facebook">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://twitter.com/YourPage" target="_blank">
+                        <img src="twitter-icon.png" alt="Twitter">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.instagram.com/YourPage" target="_blank">
+                        <img src="instagram-icon.png" alt="Instagram">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.linkedin.com/company/YourPage" target="_blank">
+                        <img src="linkedin-icon.png" alt="LinkedIn">
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <p>Join us on social media for more updates and insights</p>
+    </div>
+</footer>
+
+<!-- JavaScript to handle form submission and display crisis reports -->
+<script>
+// Retrieve crisis reports from localStorage
+var reports = localStorage.getItem("crisisReports") ? JSON.parse(localStorage.getItem("crisisReports")) : [];
+
+// Display all crisis reports and populate the dropdown menu
+var crisisList = document.getElementById("crisis-reports");
+var reportSelection = document.getElementById("report-selection");
+
+reports.forEach(function(report, index) {
+    var listItem = document.createElement("li");
+    listItem.textContent = "Report " + report.id + ": " +
+        "Brief Description: " + report.briefDescription + ", " +
+        "Immediate Action: " + report.immediateAction + ", " +
+        "Location: " + report.location + ", " +
+        "Contact Details: " + report.contactDetails;
+    crisisList.appendChild(listItem);
+
+    // Add an option to the dropdown menu for each report
+    var option = document.createElement("option");
+    option.value = index; // Use the report index as the option value
+    option.textContent = "Report " + report.id;
+    reportSelection.appendChild(option);
+});
+
+document.getElementById("response-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the selected report index and user response/comment
+    var reportIndex = document.getElementById("report-selection").value;
+    var response = document.getElementById("response").value;
+
+    // Save the response/comment to localStorage
+    var responses = localStorage.getItem("responses") ? JSON.parse(localStorage.getItem("responses")) : [];
+    responses.push("Response to Report " + reports[reportIndex].id + ": " + response);
+    localStorage.setItem("responses", JSON.stringify(responses));
+
+    // Reset the form
+    document.getElementById("response-form").reset();
+
+    // Display the response/comment in the list
+    var responseList = document.getElementById("crisis-responses");
+    var listItem = document.createElement("li");
+    listItem.textContent = "Response to Report " + reports[reportIndex].id + ": " + response;
+    responseList.appendChild(listItem);
+});
+
+// Display stored responses on page load
+var storedResponses = localStorage.getItem("responses") ? JSON.parse(localStorage.getItem("responses")) : [];
+var responseList = document.getElementById("crisis-responses");
+storedResponses.forEach(function(response) {
+    var listItem = document.createElement("li");
+    listItem.textContent = response;
+    responseList.appendChild(listItem);
+});
+
+// Function to contact the reporter
+function contactReporter() {
+    var reportIndex = document.getElementById("report-selection").value;
+    var reporterContact = reports[reportIndex].contactDetails;
+    alert("Contact the reporter at: " + reporterContact);
+}
+</script>
+
+</body>
+</html>
